@@ -1,0 +1,30 @@
+name: PHP SAST
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: SAST
+      run: |
+        vendor/bin/phpcpd src
+        mkdir -p tests/test-results
+        vendor/bin/phpcs -s --parallel=4 --standard=misc/phpcs.xml --report=junit --report-file=tests/test-results/phpcs.xml --error-severity=1 --warning-severity=8 src/*
+        vendor/bin/php-cs-fixer --config=misc/phpcsfixer.php fix --dry-run --format=junit --no-interaction > tests/test-results/phpcsfixer.xml
+        # Greatly speed up phpmd - parallel processing
+        find src -maxdepth 1 -mindepth 1 -type d | xargs -I{} -P 4 vendor/bin/phpmd {} text misc/phpmd.xml
+        vendor/bin/phpstan analyse --configuration misc/phpstan.neon --no-progress
+        vendor/bin/phpmnd src --ignore-numbers=0,1 --no-interaction --non-zero-exit-on-violation --extensions=all
+        vendor/bin/psalm -c misc/psalm.xml --show-info=false --threads=4
+        vendor/bin/security-checker security:check
