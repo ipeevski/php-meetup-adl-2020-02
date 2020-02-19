@@ -1,0 +1,16 @@
+{
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "sebastian/phpcpd": "^4.1",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpro/grumphp": "^0.17.2",
+        "phpmd/phpmd": "^2.8",
+        "phpstan/phpstan": "^0.12.11",
+        "vimeo/psalm": "^3.9",
+        "sensiolabs/security-checker": "^6.0",
+        "phpmetrics/phpmetrics": "^2.5",
+        "povils/phpmnd": "^2.2",
+        "phan/phan": "^2.4"
+    }
+}

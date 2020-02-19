@@ -1,0 +1,2 @@
+parameters:
+    tasks: { composer: null, git_blacklist: null, phan: null, phpcpd: null, phpcs: null, phpcsfixer2: null, phplint: null, phpmd: null, phpmnd: null, phpstan: null, psalm: null, securitychecker: null }

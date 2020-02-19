@@ -1,0 +1,14 @@
+parameters:
+    level: 0
+    bootstrap: %currentWorkingDirectory%/misc/phpstan-bootstrap.php
+    paths:
+        - %currentWorkingDirectory%/src
+    # autoload_directories:
+    #     - %currentWorkingDirectory%/vendor
+    # autoload_files:
+        # - %currentWorkingDirectory%/src/helpers.php
+    excludes_analyse:
+        - %currentWorkingDirectory%/misc
+        - %currentWorkingDirectory%/vendor
+    ignoreErrors:
+        # - '#Access to an undefined property [a-zA-Z0-9\\_]+::\$[a-z_]+_model#'

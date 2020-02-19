@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<ruleset name="Custom">
+ <description>My rules</description>
+ <arg name="tab-width" value="4"/>
+
+ <exclude-pattern>*/misc/*</exclude-pattern>
+ <exclude-pattern>*/vendor/*</exclude-pattern>
+
+ <!-- Include the whole PSR-2 standard -->
+ <rule ref="PSR2" />
+
+ <rule ref="Generic.CodeAnalysis"/>
+
+ <rule ref="Generic.Classes.DuplicateClassName"/>
+ <rule ref="Generic.Files.OneClassPerFile"/>
+ <rule ref="Generic.Files.OneInterfacePerFile"/>
+ <rule ref="Generic.Files.OneTraitPerFile"/>
+ <rule ref="Generic.Metrics.CyclomaticComplexity">
+  <properties>
+   <property name="absoluteComplexity" value="30"/>
+  </properties>
+ </rule>
+ <rule ref="Generic.Metrics.NestingLevel"/>
+ <rule ref="Generic.NamingConventions.ConstructorName"/>
+ <rule ref="Generic.PHP.DeprecatedFunctions"/>
+ <rule ref="Generic.PHP.NoSilencedErrors"/>
+ <rule ref="Generic.PHP.Syntax"/>
+ <!-- PHP keywords MUST be in lower case. -->
+ <rule ref="Generic.PHP.LowerCaseKeyword"/>
+ <!-- The PHP constants true, false, and null MUST be in lower case. -->
+ <rule ref="Generic.PHP.LowerCaseConstant"/>
+
+ <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+
+ <rule ref="Generic.Commenting">
+  <type>warning</type>
+ </rule>
+ <rule ref="Generic.Commenting.DocComment">
+  <type>warning</type>
+ </rule>
+
+ <rule ref="Generic.Files.LineLength">
+  <properties>
+   <property name="lineLimit" value="160"/>
+   <property name="absoluteLineLimit" value="0"/>
+  </properties>
+ </rule>
+
+ <rule ref="PEAR.Files.IncludingFile"/>
+
+ <rule ref="Zend.Debug.CodeAnalyzer"/>
+
+ <rule ref="MySource.Debug.DebugCode"/>
+ <rule ref="MySource.Debug.FirebugConsole"/>
+
+ <rule ref="Squiz.CSS">
+  <exclude name="Squiz.CSS.ColourDefinition.NotUpper"/>
+  <exclude name="Squiz.CSS.NamedColours.Forbidden"/>
+ </rule>
+ <rule ref="Squiz.Debug"/>
+ <rule ref="Squiz.PHP">
+  <exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon"/>
+  <exclude name="Squiz.PHP.DisallowInlineIf.Found"/>
+ </rule>
+ <rule ref="Squiz.Scope"/>
+ <rule ref="Squiz.ControlStructures">
+  <exclude name="Squiz.ControlStructures.ElseIfDeclaration"/>
+  <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/>
+  <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingBeforeBreak" />
+ </rule>
+ <rule ref="Squiz.WhiteSpace">
+  <exclude name="Squiz.WhiteSpace.FunctionClosingBraceSpace"/>
+  <exclude name="Squiz.WhiteSpace.FunctionSpacing"/>
+  <exclude name="Squiz.WhiteSpace.MemberVarSpacing"/>
+  <exclude name="Squiz.WhiteSpace.ControlStructureSpacing"/> <!-- done by PSR2 -->
+ </rule>
+ <rule ref="Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore" />
+ <rule ref="Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter" />
+ <rule ref="Squiz.Strings">
+  <exclude name="Squiz.Strings.ConcatenationSpacing.PaddingFound"/>
+ </rule>
+
+ <rule ref="Squiz.Commenting.EmptyCatchComment"/>
+ <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
+
+ <rule ref="Squiz.Commenting.InlineComment">
+  <exclude name="Squiz.Commenting.InlineComment.NoSpaceBefore"/>
+  <exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+  <exclude name="Squiz.Commenting.InlineComment.SpacingAfter"/>
+ </rule>
+
+ <rule ref="Squiz.Commenting.InlineComment.NotCapital">
+  <type>warning</type>
+ </rule>
+</ruleset>
