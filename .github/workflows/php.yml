@@ -18,11 +18,11 @@ jobs:
     - name: Prepare test environment
       run: mkdir -p tests/test-results
 
-    - name: Upload math result for sast
+    - name: Upload vendor dir for sast
       uses: actions/upload-artifact@v1
       with:
         name: composer
-        path: composer
+        path: vendor
 
   sast-phpcpd:
     runs-on: ubuntu-latest
