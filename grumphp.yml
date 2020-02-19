@@ -1,2 +1,45 @@
 parameters:
-    tasks: { composer: null, git_blacklist: null, phan: null, phpcpd: null, phpcs: null, phpcsfixer2: null, phplint: null, phpmd: null, phpmnd: null, phpstan: null, psalm: null, securitychecker: null }
+    tasks:
+        composer: ~
+        git_blacklist:
+            keywords:
+                - "die("
+                - "var_dump("
+                - "xdebug_break()"
+                - "print_r("
+                - "console.log("
+        git_conflict: ~
+        securitychecker:
+
+        phplint:
+            exclude: ['vendor']
+            jobs: 10
+        phpcs:
+            standard: 'misc/phpcs.xml'
+            warning_severity: 0
+            triggered_by: [php, css, js]
+            whitelist_patterns:
+                - src
+        phpcsfixer2:
+            config: 'misc/phpcsfixer.php'
+        phpmd:
+            ruleset: ['misc/phpmd.xml']
+        phpmnd:
+            directory: src
+            hint: true
+            extensions: [all]
+            ignore_numbers: []
+            strings: true
+        #     ignore_strings: []
+        phpcpd:
+            directory: ['src']
+            min_lines: 5
+            min_tokens: 70
+        phpstan:
+            configuration: 'misc/phpstan.neon'
+        psalm:
+            config: 'misc/psalm.xml'
+            threads: 4
+            show_info: false
+            ignore_patterns:
+                - vendor

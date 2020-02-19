@@ -17,9 +17,9 @@ class A {
                 ;
             } elseif ($i == 3) {
                 ;
-            } elseif ($i == 5) {
+            } elseif ($i == 56) {
                 ;
-            } elseif ($i == 6) {
+            } elseif ($i == 'fifty seven') {
                 ;
             }
         }
