@@ -1,18 +1,18 @@
-# Setup
-Run local composer tools
-
-
-export PATH=$PATH:vendor/bin/
-Or install tools globally with composer
-
+---
+marp: true
 ---
 
-GrumPhp monitoring
+## Static Code Analysis
 
-## Install
-```
-composer require --dev phpro/grumphp
-```
+https://github.com/exakat/php-static-analysis-tools
+
+## Static Application Security Testing (SAST)
+
+## Dynamic Application Security Testing (DAST)
+
+---
+# Setup
+Run local composer tools
 
 ---
 
@@ -126,3 +126,16 @@ vendor/bin/phpcpd src
 composer require --dev phpmetrics/phpmetrics
 
 vendor/bin/phpmetrics --report-html=tmp/phpmetrics src
+
+---
+GrumPhp monitoring
+
+## Install
+```
+composer require --dev phpro/grumphp
+```
+
+---
+# CI pipelines
+GitHub Actions
+https://github.com/ipeevski/php-meetup-adl-2020-02/actions
