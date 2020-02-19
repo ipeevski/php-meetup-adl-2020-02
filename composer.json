@@ -1,4 +1,7 @@
 {
+    "name": "ipeevski/php-meetup-adl-2020-02",
+    "description": "Demo code for a presentation",
+    "license": "MIT",
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.5",
         "sebastian/phpcpd": "^4.1",
