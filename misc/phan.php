@@ -165,7 +165,7 @@ return [
     // as variables (like `$class->$property` or
     // `$class->$method()`) in ways that we're unable
     // to make sense of.
-    'dead_code_detection' => false,
+    'dead_code_detection' => true,
 
     // Set to true in order to attempt to detect unused variables.
     // `dead_code_detection` will also enable unused variable detection.
@@ -234,12 +234,6 @@ return [
     // Add any issue types (such as `'PhanUndeclaredMethod'`)
     // to this black-list to inhibit them from being reported.
     'suppress_issue_types' => [
-	    'PhanPluginUnknownMethodParamType',
-        'PhanPluginUnknownMethodReturnType',
-        'PhanPluginUnknownFunctionReturnType',
-        'PhanPluginUnknownFunctionParamType',
-        'PhanUndeclaredProperty',
-        'PhanPluginUnknownPropertyType'
     ],
 
     // A regular expression to match files to be excluded
@@ -256,14 +250,16 @@ return [
     //
     // This is useful for excluding hopelessly unanalyzable
     // files that can't be removed for whatever reason.
-    'exclude_file_list' => [],
+    'exclude_file_list' => [
+        'src/broken.php'
+    ],
 
     // Enable this to enable checks of require/include statements referring to valid paths.
     'enable_include_path_checks' => true,
 
     // The number of processes to fork off during the analysis
     // phase.
-    'processes' => 4,
+    'processes' => 1,
 
     // List of case-insensitive file extensions supported by Phan.
     // (e.g. `['php', 'html', 'htm']`)
@@ -295,9 +291,8 @@ return [
         'DuplicateArrayKeyPlugin',
         'PregRegexCheckerPlugin',
         'PrintfCheckerPlugin',
-        //'NonBool',
         'InvalidVariableIssetPlugin',
-        //'NumericalComparisonPlugin',
+        'NumericalComparisonPlugin',
         // UnknownElementTypePlugin warns about unknown types in element signatures.
         'UnknownElementTypePlugin',
         'DuplicateExpressionPlugin',
@@ -305,14 +300,14 @@ return [
         // Plugins for Phan's self-analysis
         ////////////////////////////////////////////////////////////////////////
         // TODO: warn about the usage of assert() for Phan's self-analysis. See https://github.com/phan/phan/issues/288
-        'NoAssertPlugin',
+        //'NoAssertPlugin',
         //'HasPHPDocPlugin',
         ////////////////////////////////////////////////////////////////////////
         // End plugins for Phan's self-analysis
         ////////////////////////////////////////////////////////////////////////
         'SleepCheckerPlugin', // is useful for projects which heavily use the __sleep() method.
         // Using this can cause phan's overall analysis time to more than double.
-        // 'PHPUnitNotDeadCodePlugin',  // Marks PHPUnit test case subclasses and test cases as referenced code. This is only useful for runs when dead code detection is enabled.
+        'PHPUnitNotDeadCodePlugin',  // Marks PHPUnit test case subclasses and test cases as referenced code. This is only useful for runs when dead code detection is enabled.
     ],
 
     // A list of directories that should be parsed for class and

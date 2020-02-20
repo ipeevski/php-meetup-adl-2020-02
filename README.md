@@ -4,7 +4,9 @@ theme: gaia
 ---
 
 # Static Code Analysis
-## Ivan Peevski (Personify Care)
+## Tools and Tricks
+#### by Ivan Peevski (Personify Care)
+![Personify Care](https://app.personifycare.com/images/personifycare_logo_footer.png)
 
 ---
 ## Static Code Analysis
@@ -24,11 +26,13 @@ Install tools through composer
 Make sure PHP code can be parsed
 
 ## Install
+```
 composer require --dev jakub-onderka/php-parallel-lint
+```
 
 ## Run
 ```
-parallel-lint src/
+parallel-lint src
 ```
 
 ---
@@ -41,7 +45,7 @@ composer require --dev sebastian/phpcpd
 
 ## Run
 ```
-vendor/bin/phpcpd src
+vendor/bin/phpcpd --min-tokens=5 src
 ```
 
 ---
@@ -56,7 +60,7 @@ composer require --dev povils/phpmnd
 
 ## Run
 ```
-vendor/bin/phpmnd src --ignore-numbers=0,1 --no-interaction --non-zero-exit-on-violation --extensions=all
+vendor/bin/phpmnd src --no-interaction --non-zero-exit-on-violation --extensions=all
 ```
 
 ---
@@ -86,7 +90,7 @@ vendor/bin/phpcbf --standard=misc/phpcs.xml src/*
 ## Install
 via composer
 ```
-composer require --dev friendsofphp/php-cs-fixe
+composer require --dev friendsofphp/php-cs-fixer
 ```
 
 ## Fix all the things (again)
@@ -105,6 +109,9 @@ composer require --dev phpmd/phpmd
 
 ## Run
 ```
+# Base test
+vendor/bin/phpmd src text cleancode,codesize,design,naming,unusedcode
+# Custom rules
 vendor/bin/phpmd src text misc/phpmd.xml
 ```
 
@@ -119,7 +126,7 @@ composer require --dev phan/phan
 
 ## Run
 ```
-PHAN_DISABLE_XDEBUG_WARN=1 vendor/bin/phan --allow-polyfill-parser --config-file=misc/phan.php --output-mode=text
+PHAN_DISABLE_XDEBUG_WARN=1 vendor/bin/phan --allow-polyfill-parser --config-file=misc/phan.php --output-mode=text --color
 ```
 
 ---
@@ -180,7 +187,7 @@ vendor/bin/phpmetrics --report-html=tmp/phpmetrics src
 ---
 # More Tools
 
-List of tools: 
+List of tools:
 - https://github.com/exakat/php-static-analysis-tools
 - https://owasp.org/www-community/Source_Code_Analysis_Tools
 
