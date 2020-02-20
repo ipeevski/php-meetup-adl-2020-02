@@ -6,13 +6,14 @@ class A
     /**
      * Method that does something
      */
-    function b(string $a)
+    function b(string $a  )
     {
         echo 'abcd';
-        foreach (range(1, 100) as $i) {
+        foreach (range(1, 100) as $i)  {
             if ($i == 1) {
                 ;
-            } elseif ($i == 4) {
+            }elseif( $i == 4)
+            {
                 ;
             } elseif ($i == 56) {
                 ;
