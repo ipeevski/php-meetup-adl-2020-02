@@ -46,15 +46,15 @@ jobs:
         composer install --prefer-dist --no-progress --no-suggest
         find src -maxdepth 1 -mindepth 1 -type d | xargs -I{} -P 4 vendor/bin/phpmd {} text misc/phpmd.xml
 
-  sast-phpstan:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
+  # sast-phpstan:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
 
-    - name: phpstan
-      run: |
-        composer install --prefer-dist --no-progress --no-suggest
-        vendor/bin/phpstan analyse --configuration misc/phpstan.neon --no-progress
+  #   - name: phpstan
+  #     run: |
+  #       composer install --prefer-dist --no-progress --no-suggest
+  #       vendor/bin/phpstan analyse --configuration misc/phpstan.neon --no-progress
 
   sast-phpmnd:
     runs-on: ubuntu-latest

@@ -1,31 +1,24 @@
 <?php
-echo  'a';
 
-class A
+namespace Demo;
+
+class ASpecialClass
 {
     /**
      * Method that does something
      */
-    function b(string $a  )
+    public function something(int $apple)
     {
         echo 'abcd';
-        foreach (range(1, 100) as $i)  {
+        foreach (range(1, 100) as $i) {
             if ($i == 1) {
-                ;
-            }elseif( $i == 4)
-            {
-                ;
-            } elseif ($i == 56) {
-                ;
-            } elseif ($i == 'six') {
-                ;
+                return $apple;
             }
         }
-
-        var_dump('');
     }
 
-    public function c() {
-        $this->b(1);
+    public function somethingElse()
+    {
+        $this->something(1);
     }
 }
