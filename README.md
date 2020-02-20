@@ -32,7 +32,7 @@ composer require --dev jakub-onderka/php-parallel-lint
 
 ## Run
 ```
-parallel-lint src
+vendor/bin/parallel-lint src
 ```
 
 ---

@@ -6,12 +6,12 @@ class A
     /**
      * Method that does something
      */
-    public function b()
+    function b(string $a  )
     {
         echo 'abcd';
-        foreach (range(1, 100) as $i) {
+        foreach (range(1, 100) as $i)  {
             if ($i == 1) {
-                return;
+                ;
             }
         }
     }
